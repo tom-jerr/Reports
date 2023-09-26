@@ -11,6 +11,14 @@
 
 ![](https://github.com/tom-jerr/MyblogImg/raw/main/C++/IO/IOstate.png)
 
+### 管理条件状态
+~~~c++
+auto old_state = cin.rdstate();
+cin.clear();
+process_input(cin);
+cin.setstate(old_state);
+~~~
+
 ### 管理输出缓冲
 
 - **程序崩溃，输出缓冲区不会被刷新**
@@ -40,6 +48,7 @@
 
 ![](https://github.com/tom-jerr/MyblogImg/raw/main/C++/IO/fstream.png)
 
+- 使用fstream代替iostream&
 - 自动构造和析构：出作用域，立即销毁
 - 当一个fstream对象被销毁时，close自动调用
 
@@ -47,7 +56,7 @@
 
 ![](https://github.com/tom-jerr/MyblogImg/raw/main/C++/IO/filemode.png)
 
-- 以out模式打开文件丢弃已有数据；避免清空同时指定app
+- **以out模式打开文件丢弃已有数据；避免清空同时指定app**
 - 每次调用open确定文件模式（显示或隐式（out | trunc））
 
 ## string流
